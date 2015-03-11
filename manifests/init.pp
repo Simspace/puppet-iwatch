@@ -1,5 +1,5 @@
 class iwatch {
-  $config-file = hiera('iwatch::config_file')
+  $config_file = hiera('iwatch::config_file')
   $title = hiera('iwatch::title')
   $iwatch_params = hiera('iwatch::path')
 
