@@ -1,5 +1,15 @@
-<%- if @recurse == 'enabled' -%>
-    <path type="recursive" syslog="on"><%= @path %></path>
-<%- else -%>
-    <path type="single" syslog="off"><%= @path %></path>
-<%- end -%>
+<%-
+line = '    <path'
+if @recurse == 'enabled'
+  line << ' type="recursive"'
+else
+  line << ' type="single"'
+end
+if @syslog == 'enabled'
+  line << ' syslog="on"'
+else
+  line << ' syslog="off"'
+end
+line << '>' + @path + '</path>'
+-%>
+@line
