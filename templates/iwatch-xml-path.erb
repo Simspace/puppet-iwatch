@@ -1,5 +1,5 @@
 <% if @recurse == 'enabled' %>
-    <path type="recursive" syslog="on"><%= @path %>/>
+    <path type="recursive" syslog="on"><%= @path %></path>
 <% else %>
-    <path type="single" syslog="off"><%= @path %>/>
+    <path type="single" syslog="off"><%= @path %></path>
 <% end %>
