@@ -10,7 +10,7 @@ class iwatch {
 
   if $iwatch_syslog != 'default' {
     rsyslog::snippet { '10-iwatch':
-      lines => [ ":programname, isequal, \"iWatch\" @@${iwatch_syslog}", '& ~' ]
+      lines => [ "user.info @@${iwatch_syslog}" ],
     }
   }
 
