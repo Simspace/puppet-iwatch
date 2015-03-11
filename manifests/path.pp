@@ -3,6 +3,7 @@ define iwatch::path (
   $recurse = 'disabled',
   $syslog = 'enabled',
   $exec = 'disabled',
+  $alert = 'disabled',
   $events = 'default',
 ) {
 

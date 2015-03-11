@@ -16,6 +16,11 @@ end
 if @events != 'default'
   line << ' events="' + @events + '"'
 end
+if @alert == 'enabled'
+  line << ' alert="on"'
+else
+  line << ' alert="off"'
+end
 line << '>' + @path + '</path>'
 -%>
 <%= line %>
