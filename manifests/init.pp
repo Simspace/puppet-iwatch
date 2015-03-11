@@ -8,6 +8,10 @@ class iwatch () {
 
   $iwatch_params = hiera('iwatch')
 
+  package { 'iwatch':
+    ensure => 'latest',
+  }
+
   concat { $iwatch::config_file:
     owner => 'root',
     group => 'root',
