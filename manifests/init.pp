@@ -1,26 +1,26 @@
 class iwatch {
-  $config_file = hiera('iwatch::config_file')
-  $title = hiera('iwatch::title')
+  $iwatch_config_file = hiera('iwatch::config_file')
+  $iwatch_title = hiera('iwatch::title')
   $iwatch_params = hiera('iwatch::path')
 
   package { 'iwatch':
     ensure => 'latest',
   }
 
-  concat { $iwatch::config_file:
+  concat { $iwatch_config_file:
     owner => 'root',
     group => 'root',
     mode => '0644',
   }
 
   concat::fragment { "header":
-    target => "$iwatch::config_file",
+    target => "$iwatch_config_file",
     content => template('iwatch/iwatch-xml-header.erb'),
     order => 100,
   }
 
   concat::fragment { "footer":
-    target => "$iwatch::config_file",
+    target => "$iwatch_config_file",
     content => template('iwatch/iwatch-xml-footer.erb'),
     order => 900,
   }

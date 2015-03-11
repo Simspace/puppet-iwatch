@@ -5,7 +5,7 @@ define iwatch::path (
 ) {
 
   concat::fragment { "path_${path}":
-    target => "$iwatch::config_file",
+    target => "$iwatch::iwatch_config_file",
     content => template('iwatch/iwatch-xml-path.erb'),
     order = > 201,
   }
