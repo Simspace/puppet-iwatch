@@ -1,12 +1,7 @@
-class iwatch () {
-  $params = hiera('iwatch')
-
-  $iwatch_defaults = {
-    config_file => '/etc/iwatch/iwatch.xml',
-    title => 'WatchList',
-  }
-
-  $iwatch_params = hiera('iwatch')
+class iwatch {
+  $config-file = hiera('iwatch::config_file')
+  $title = hiera('iwatch::title')
+  $iwatch_params = hiera('iwatch::path')
 
   package { 'iwatch':
     ensure => 'latest',
@@ -30,5 +25,5 @@ class iwatch () {
     order => 900,
   }
 
-  create_resources('iwatch::path', $iwatch_params, $iwatch_defaults)
+  create_resources('iwatch::path', $iwatch_params)
 }
