@@ -1,4 +1,4 @@
-class iwatch::path (
+define iwatch::path (
   $path = $name,
   $recurse = 'disabled',
   $syslog = 'enabled'
