@@ -1,7 +1,7 @@
 define iwatch::path (
-  $path => $name,
-  $recurse => 'disabled',
-  $syslog => 'enabled',
+  $path = $name
+  $recurse = 'disabled'
+  $syslog = 'enabled'
 ) {
 
   concat::fragment { "path_${path}":
