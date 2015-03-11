@@ -1,0 +1,7 @@
+---
+iwatch::config_file: '/etc/iwatch/iwatch.xml'
+iwatch::title: 'WatchList'
+iwatch::path:
+  '/etc/hosts':
+  '/etc/ssh':
+    recurse: 'enabled'
