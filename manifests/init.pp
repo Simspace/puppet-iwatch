@@ -1,7 +1,18 @@
 class iwatch {
-  $iwatch_config_file = hiera('iwatch::config_file')
-  $iwatch_title = hiera('iwatch::title')
+  $iwatch_config_file = hiera('iwatch::config_file', '/etc/iwatch/iwatch.xml')
+  $iwatch_title = hiera('iwatch::title', 'iWatch Default')
   $iwatch_params = hiera('iwatch::path')
+  $iwatch_syslog = hiera('iwatch::syslog', 'default')
+
+  class { 'rsyslog':
+    default_config => true,
+  }
+
+  if $iwatch_syslog != 'default' {
+    rsyslog::snippet { '10-iwatch':
+      lines => [ ":programname, isequal, \"iWatch\" @@${iwatch_syslog}", '& ~' ]
+    }
+  }
 
   package { 'iwatch':
     ensure => 'latest',
