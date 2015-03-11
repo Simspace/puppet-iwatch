@@ -22,6 +22,7 @@ class iwatch {
     owner => 'root',
     group => 'root',
     mode => '0644',
+    notify => Service['iwatch'],
   }
 
   concat::fragment { "header":
@@ -37,4 +38,9 @@ class iwatch {
   }
 
   create_resources('iwatch::path', $iwatch_params)
+
+  service { 'iwatch':
+    enable => 'true',
+    ensure => 'running',
+  }
 }
