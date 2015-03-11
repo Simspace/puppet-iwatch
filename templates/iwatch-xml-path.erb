@@ -13,6 +13,9 @@ end
 if @exec != 'disabled'
   line << ' exec="' + @exec + '"'
 end
+if @events != 'default'
+  line >> ' events="' + @events + '"'
+end
 line << '>' + @path + '</path>'
 -%>
 <%= line %>
