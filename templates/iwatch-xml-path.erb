@@ -10,6 +10,9 @@ if @syslog == 'enabled'
 else
   line << ' syslog="off"'
 end
+if @exec != 'disabled'
+  line << ' exec="' + @exec + '"'
+end
 line << '>' + @path + '</path>'
 -%>
 <%= line %>
