@@ -44,7 +44,8 @@ class iwatch {
     ensure => 'running',
   }
 
-  file_line { '/etc/default/iwatch':
+  file_line { 'iwatch-defaults':
+    path => '/etc/default/iwatch',
     match => 'START_DAEMON=false',
     line => 'START_DAEMON=true',
     notify => Service['iwatch'],
