@@ -22,11 +22,13 @@ class iwatch () {
     target => "$iwatch::config_file",
     content => template('iwatch/iwatch-xml-header.erb'),
     order => 100,
+  }
 
   concat::fragment { "footer":
     target => "$iwatch::config_file",
     content => template('iwatch/iwatch-xml-footer.erb'),
     order => 900,
+  }
 
   create_resources('iwatch::path', $iwatch_params, $iwatch_defaults)
 }
