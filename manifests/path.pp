@@ -1,6 +1,6 @@
 class iwatch::path (
-  $path = $name
-  $recurse = 'disabled'
+  $path = $name,
+  $recurse = 'disabled',
   $syslog = 'enabled'
 ) {
 
